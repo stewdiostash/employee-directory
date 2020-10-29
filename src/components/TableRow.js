@@ -1,14 +1,14 @@
 import React from "react";
 
-const TableRow = () => {
+const TableRow = (props) => {
   return (
-    <div>
-      <tr className="tr">
-        <td>Jill</td>
-        <td>Smith</td>
-        <td>50</td>
-      </tr>
-    </div>
+    <tr className="tr">
+      <td>{props.employeeImage}</td>
+      <td>{props.employeeName}</td>
+      <td>{props.employeePhone}</td>
+      <td>{props.employeeEmail}</td>
+      <td>{props.employeeDOB}</td>
+    </tr>
   );
 };
 
