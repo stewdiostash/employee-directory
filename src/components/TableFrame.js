@@ -9,6 +9,7 @@ class TableFrame extends Component {
   state = {
     employees: [{}],
     filteredEmployees: [{}],
+    isAscending: true,
   };
 
   // getEmployees = () => {
@@ -38,6 +39,27 @@ class TableFrame extends Component {
     });
   };
 
+  handleSort = () => {
+    const compare = (a, b) => {
+      if (this.state.isAscending) {
+        if (a.name.first > b.name.first) return 1;
+        if (a.name.first < b.name.first) return -1;
+        return 0;
+      } else {
+        if (a.name.first < b.name.first) return 1;
+        if (a.name.first > b.name.first) return -1;
+        return 0;
+      }
+    };
+
+    const ascendingOrder = this.state.employees.sort(compare);
+    console.log(ascendingOrder);
+    this.setState({
+      isAscending: !this.state.isAscending,
+      filteredEmployees: ascendingOrder,
+    });
+  };
+
   render() {
     console.log(this.state);
     return (
@@ -49,7 +71,7 @@ class TableFrame extends Component {
             <thead>
               <tr>
                 <th>Image</th>
-                <th>Name</th>
+                <th onClick={this.handleSort}>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
                 <th>DOB</th>
