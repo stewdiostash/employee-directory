@@ -26,6 +26,11 @@ class TableFrame extends Component {
 
   handleFilter = (event) => {
     console.log(event.target.value);
+    const filter = event.target.value;
+    const filteredList = this.state.employees.filter((item) => {
+      let values = Object.values(item).join("").toLowerCase();
+      return values.indexOf(filter.toLowerCase()) !== -1;
+    });
   };
 
   render() {
