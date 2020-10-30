@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Searchbar from "./Searchbar";
 // import TableRow from "./TableRow";
 import API from "../utils/API";
+import TableRow from "./TableRow";
 // import axios from "axios";
 
 class TableFrame extends Component {
@@ -18,8 +19,8 @@ class TableFrame extends Component {
   componentDidMount() {
     API.search().then((res) =>
       this.setState({
-        employees: res.data,
-        filteredEmployees: res.data,
+        employees: res.data.results,
+        filteredEmployees: res.data.results,
       })
     );
   }
@@ -29,7 +30,11 @@ class TableFrame extends Component {
     const filter = event.target.value;
     const filteredList = this.state.employees.filter((item) => {
       let values = Object.values(item).join("").toLowerCase();
+      // console.log(values);
       return values.indexOf(filter.toLowerCase()) !== -1;
+    });
+    this.setState({
+      filteredEmployees: filteredList,
     });
   };
 
@@ -50,8 +55,9 @@ class TableFrame extends Component {
                 <th>DOB</th>
               </tr>
             </thead>
-            <tbody>
-              {/* {this.state.employees.map((employee) => (
+            <TableRow employees={this.state.filteredEmployees} />
+            {/* <tbody>
+              {this.state.employees.map((employee) => (
               <TableRow
                 employeeImage={employee.picture.thumbnail}
                 employeeName={employee.name.first + employee.name.last}
@@ -59,8 +65,8 @@ class TableFrame extends Component {
                 employeeEmail={employee.email}
                 employeeDOB={employee.dob.date}
               />
-            ))} */}
-            </tbody>
+            ))}
+            </tbody> */}
           </table>
         </div>
       </>

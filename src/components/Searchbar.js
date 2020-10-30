@@ -1,7 +1,6 @@
 import React from "react";
 
-const Searchbar = (props) => {
-  console.log(props);
+const Searchbar = ({ handleFilter }) => {
   return (
     <div class="field has-addons columns is-centered my-5">
       <div class="control">
@@ -9,7 +8,7 @@ const Searchbar = (props) => {
           class="input"
           type="text"
           placeholder="Find a repository"
-          onChange={(event) => props.handleFilter(event)}
+          onChange={(event) => handleFilter(event)}
         />
       </div>
       {/* <div class="control">
