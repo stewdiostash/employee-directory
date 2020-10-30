@@ -12,11 +12,6 @@ class TableFrame extends Component {
     isAscending: true,
   };
 
-  // getEmployees = () => {
-  //   API.search().then((res) => this.setState({ employees: res.data }));
-  //   console.log({ employees: res.data });
-  // };
-
   componentDidMount() {
     API.search().then((res) =>
       this.setState({
@@ -51,7 +46,6 @@ class TableFrame extends Component {
         return 0;
       }
     };
-
     const ascendingOrder = this.state.employees.sort(compare);
     console.log(ascendingOrder);
     this.setState({
@@ -63,11 +57,11 @@ class TableFrame extends Component {
   render() {
     console.log(this.state);
     return (
-      <>
+      <div>
         <Searchbar handleFilter={this.handleFilter} />
 
         <div className=" columns is-centered my-5">
-          <table className="table">
+          <table className="container table">
             <thead>
               <tr>
                 <th>Image</th>
@@ -78,20 +72,9 @@ class TableFrame extends Component {
               </tr>
             </thead>
             <TableRow employees={this.state.filteredEmployees} />
-            {/* <tbody>
-              {this.state.employees.map((employee) => (
-              <TableRow
-                employeeImage={employee.picture.thumbnail}
-                employeeName={employee.name.first + employee.name.last}
-                employeePhone={employee.phone}
-                employeeEmail={employee.email}
-                employeeDOB={employee.dob.date}
-              />
-            ))}
-            </tbody> */}
           </table>
         </div>
-      </>
+      </div>
     );
   }
 }

@@ -7,11 +7,11 @@ const TableRow = ({ employees }) => {
       {employees[0] !== undefined && employees[0].name !== undefined ? (
         employees.map(({ name, picture, phone, email, dob, login }) => {
           return (
-            <tr key={login.uuid} className="tr">
+            <tr key={login.uuid} className="is-vcentered">
               <td>
                 <img
                   src={picture.thumbnail}
-                  alt={`picture of ${name.first} ${name.last}`}
+                  alt={`${name.first} ${name.last}`}
                 />
               </td>
               <td>
