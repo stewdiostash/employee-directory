@@ -19,7 +19,7 @@ const TableRow = ({ employees }) => {
               </td>
               <td>{phone}</td>
               <td>{email}</td>
-              <td>{dob.date}</td>
+              <td>{dob.date.substr(0, 10)}</td>
             </tr>
           );
         })
