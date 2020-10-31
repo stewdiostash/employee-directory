@@ -4,6 +4,7 @@
 
 - [Description](#description)
 - [Screenshot](#screenshot)
+- [URL](#url)
 - [Contributions](#contributions)
 - [License](#license)
 
@@ -14,6 +15,10 @@ React.js app that dynamically filters and sorts a list of 500 employees generate
 ## Screenshot
 
 ![Employee Directory UI](public/employee-dir-ui.png)
+
+## URL
+
+Deployed at https://stewdiostash.github.io/employee-directory/
 
 ## Contributions
 
